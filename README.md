@@ -25,14 +25,14 @@ THEN I am presented with the last searched city forecast
   - date
   - icon for weather conditions
   - temp, humidity
- - show city
- - date
- - icon for weather conditions
- - temp
- - humidity
- - wind speed
- - uv index
-  - color for favorable, moderate, or severe
+ - For New City Search Field:
+  - date
+  - icon for weather conditions
+  - temp
+  - humidity
+  - wind speed
+  - uv index
+ - Color for favorable, moderate, or severe
 5. recent searched cities are active
 6. local storage makes possible so that on refresh the last city searched is shown
 
