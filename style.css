@@ -1,6 +1,6 @@
 body {
   font-size: small;
-  background-color: lightblue;
+  background-image: linear-gradient(to bottom right, skyblue, rgb(134, 203, 226))
 }
 
 .weather-heading {
@@ -12,11 +12,11 @@ body {
 
 .jumbotron{
   height: 50px;
-  background-color: rgb(28, 97, 245)e;
+  background-image: linear-gradient(to bottom right, rgb(162, 225, 250), rgb(134, 203, 226))
 }
 
 .weather-div {
-  background-color: lightblue;
+  background-color: rgb(147, 212, 231);
   width: 20%;
   border-width: 0px;
 }

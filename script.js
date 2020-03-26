@@ -7,7 +7,7 @@ var allCities = cityArr.concat(savedCities);
 
 if (localStorage.getItem("cityHistory")) {
   for (var i = 0; i < allCities.length; i++) {
-    $("#recent-list").append('<p class="past-city list-group list-group-flush data-city="' + allCities[i] + '">' + allCities[i] + '</p>');
+    $("#recent-list").prepend('<p class="past-city list-group list-group-flush data-city="' + allCities[i] + '">' + allCities[i] + '</p>');
   };
 };
 
@@ -28,7 +28,7 @@ $(document).on("click", ".search-input, .past-city", function (event) {
   if (allCities.indexOf(searchCity) < 0) {
     allCities.push(searchCity);
     localStorage.setItem("cityHistory", JSON.stringify(allCities));
-    $("#recent-list").append('<p class="past-city list-group list-group-flush data-city="' + allCities[i] + '">' + allCities[i] + '</p>');
+    $("#recent-list").prepend('<p class="past-city list-group list-group-flush data-city="' + allCities[i] + '">' + allCities[i] + '</p>');
   }
 
   $(".weather-div").css("display", "inline");
