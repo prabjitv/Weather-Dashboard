@@ -1,10 +1,26 @@
 body {
   font-size: small;
-  background-color: #ffffff;
+  background-color: lightblue;
 }
 
 .weather-heading {
   margin: 10px;
   font-size: 20px;
   font-weight: 900;
+  color: rgb(12, 12, 218)e;
+}
+
+.jumbotron{
+  height: 50px;
+  background-color: rgb(28, 97, 245)e;
+}
+
+.weather-div {
+  background-color: lightblue;
+  width: 20%;
+  border-width: 0px;
+}
+
+.weather-today {
+  margin-top: 20px;
 }
