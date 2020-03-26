@@ -28,26 +28,22 @@
     <hr>
     <div class="row " style="background-color: #ccc; height: 600px">
       <div class="col-sm-3" style="background-color: #aaa;">
+        <br>
         <form class="form-inline">
           <div class="form-group mb-2">
-            <label for="search-input" class="sr-only">City</label>
-            <input type="search" class="form-control" id="search-input" placeholder="city">
+            <label for="search-input" class="sr-only" >City</label>
+            <input type="search" class="form-control" style="width:53%" id="search-input" placeholder="city">
           </div>
           <button type="submit" class="btn btn-primary mb-2 search-input">Search</button>
         </form>
         <hr>
-        <span>Recently Searched</span><br><br>
-        <ul id="recent-list" class="list-group list-group-flush">
-          <li class="list-group-item">Crio</li>
-          <li class="list-group-item">Dalisis in</li>
-          <li class="list-group-item">Morisus</li>
-          <li class="list-group-item">Pornsectetur ac</li>
-          <li class="list-group-item">Ves eros</li>
-        </ul>
+        <h6>Recently Searched</h6>
+        <div id="recent-list">
+        </div>
       </div>
-      <div class="col-sm-9 text-center" style="background-color: #555">
+      <div class="col-sm-9 text-center weather-div" style="background-color: #555">
         <div class="row">
-          <span>Below you will see the 5 day forecast</span>
+          <p class="weather-heading">5 day forecast</p>
           <div class="col-sm-12 text-center" style="background-color: #777">
             <div class="row">
               <div class="card" style="width: 20%;">
@@ -91,7 +87,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12" style="background-color: #bbb">
-            <span>todays weather tho</span>
+            <p class="weather-heading">Today's Weather</p>
             <div class="row">
               <div class="card" style="width: 50%;">
                 <img id="searchCityIcon" class="rounded mx-auto d-block" src="" style="height: 100px; width: 100px;">
@@ -105,9 +101,9 @@
                   <p id="searchCityDate" ></p>
                 </ul>
               </div>
-              <div class="card" style="width: 50%;">
+              <!-- <div class="card" style="width: 50%;">
                 <img src="#" class="card-img-top" alt="...">
-              </div>
+              </div> -->
 
             </div>
           </div>
@@ -115,11 +111,6 @@
         </div>
       </div>
 
-<!-- class="list-group-item"
-class="list-group-item"
-class="list-group-item"
-class="list-group-item"
-class="list-group-item" -->
     </div>
 
 

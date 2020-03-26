@@ -1,4 +1,10 @@
 body {
   font-size: small;
-  background-color: darkblue;
+  background-color: #ffffff;
+}
+
+.weather-heading {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 900;
 }
