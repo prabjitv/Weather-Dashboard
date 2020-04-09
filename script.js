@@ -1,4 +1,4 @@
-$(".weather-div").css("display", "none");
+$("#weather-div").hide();
 
 var cityArr = [];
 var savedCities = JSON.parse(localStorage.getItem("cityHistory"));
@@ -13,7 +13,7 @@ if (localStorage.getItem("cityHistory")) {
   };
 };
 
-$("#recent-list").on("click", ".past-city", function () { });
+// $("#recent-list").on("click", ".past-city", function () { });
 
 $(document).on("click", ".search-input, .past-city", function (event) {
   event.preventDefault();
@@ -37,7 +37,7 @@ $(document).on("click", ".search-input, .past-city", function (event) {
   }
 
   function timeToDisplay() {
-    $(".weather-div").css("display", "inline");
+    $("#weather-div").css("display", "inline");
     if (searchCity != "") {
 
 
@@ -151,7 +151,7 @@ $(document).on("click", ".search-input, .past-city", function (event) {
         });
     }
     else {
-      alert("Please entera city.");
+      alert("Please enter a city.");
     };
   };
   timeToDisplay();
