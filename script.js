@@ -1,25 +1,40 @@
 $("#weather-div").hide();
 
 var cityArr = [];
-var savedCities = JSON.parse(localStorage.getItem("cityHistory"));
+var savedCities = "";
+savedCities = JSON.parse(localStorage.getItem("cityHistory"));
 
-var allCities = cityArr.concat(savedCities);
+console.log(cityArr);
+console.log(savedCities);
+
+var allCities = [];
+allCities = cityArr.concat(savedCities);
+
+console.log(allCities);
 
 if (localStorage.getItem("cityHistory")) {
   for (var i = 0; i < allCities.length; i++) {
-    if (allCities[i] != "") {
-      $("#recent-list").prepend('<p class="past-city list-group list-group-flush data-city="' + allCities[i] + '">' + allCities[i] + '</p>');
-    }
+    if (allCities[i] != null) {
+      $("#recent-list").prepend('<p class="past-city list-group list-group-flush data-name="' + allCities[i] + '">' + allCities[i] + '</p>');
+    };
   };
 };
 
-// $("#recent-list").on("click", ".past-city", function () { });
+
+
+$("#recent-list").on("click", ".past-city", function () { });
+
+$("#clear").on("click", function (event) {
+  event.preventDefault();
+  localStorage.clear();
+  $("#recent-list").text("");
+});
 
 $(document).on("click", ".search-input, .past-city", function (event) {
   event.preventDefault();
   var searchCity = "";
   if ($(this).hasClass("past-city")) {
-    searchCity = $(this).attr("data-city");
+    searchCity = $(this).attr("data-name");
   }
   else {
     searchCity = $("#search-input").val();
@@ -31,15 +46,13 @@ $(document).on("click", ".search-input, .past-city", function (event) {
     if (searchCity != "") {
       allCities.push(searchCity);
       localStorage.setItem("cityHistory", JSON.stringify(allCities));
-      $("#recent-list").prepend('<p class="past-city list-group list-group-flush data-city="' + allCities[i] + '">' + allCities[i] + '</p>');
-
+      $("#recent-list").prepend('<p class="btn btn-primary past-city list-group list-group-flush data-name="' + allCities[i] + '">' + allCities[i] + '</p>');
     }
   }
 
   function timeToDisplay() {
-    $("#weather-div").css("display", "inline");
+    $("#weather-div").show();
     if (searchCity != "") {
-
 
       var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&units=imperial" + "&appid=f08f6b97b32d49e126f1db9e273b1c5d";
 
@@ -160,10 +173,9 @@ $(document).on("click", ".search-input, .past-city", function (event) {
 
 $(window).on("load", function () {
   searchCity = localStorage.getItem("newCity");
-  // $("#recent-list").css("visibility", "hidden");
 
   function timeToDisplay() {
-    $(".weather-div").css("display", "inline");
+    $(".weather-div").show();
     if (searchCity != "") {
 
 
@@ -276,9 +288,7 @@ $(window).on("load", function () {
           fiveDay();
         });
     }
-    else {
-      alert("Please entera city.");
-    };
+
   };
   timeToDisplay();
 
