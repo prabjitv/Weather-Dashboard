@@ -1,24 +1,16 @@
 $("#weather-div").hide();
 
-var cityArr = [];
-var savedCities = "";
-savedCities = JSON.parse(localStorage.getItem("cityHistory"));
+var allCities = JSON.parse(localStorage.getItem("cityHistory"));
 
-console.log(cityArr);
-console.log(savedCities);
+if (localStorage.getItem("cityHistory") === null) {
+  allCities = [];
+}
 
-var allCities = [];
-allCities = cityArr.concat(savedCities);
 
 console.log(allCities);
 
-if (localStorage.getItem("cityHistory")) {
-  for (var i = 0; i < allCities.length; i++) {
-    if (allCities[i] != null) {
-      $("#recent-list").prepend('<p class="past-city list-group list-group-flush data-name="' + allCities[i] + '">' + allCities[i] + '</p>');
-    };
-  };
-};
+// if (localStorage.getItem("cityHistory")) {
+// };
 
 
 
@@ -32,6 +24,13 @@ $("#clear").on("click", function (event) {
 
 $(document).on("click", ".search-input, .past-city", function (event) {
   event.preventDefault();
+  
+  for (var i = 0; i < allCities.length; i++) {
+    if (allCities[i] != null) {
+      $("#recent-list").prepend('<button class="past-city list-group list-group-flush data-name="' + allCities[i] + '">' + allCities[i] + '</p>');
+    };
+  };
+  
   var searchCity = "";
   if ($(this).hasClass("past-city")) {
     searchCity = $(this).attr("data-name");
@@ -46,7 +45,7 @@ $(document).on("click", ".search-input, .past-city", function (event) {
     if (searchCity != "") {
       allCities.push(searchCity);
       localStorage.setItem("cityHistory", JSON.stringify(allCities));
-      $("#recent-list").prepend('<p class="btn btn-primary past-city list-group list-group-flush data-name="' + allCities[i] + '">' + allCities[i] + '</p>');
+      $("#recent-list").prepend(`<button class="btn btn-primary past-city list-group list-group-flush data-name=" ${allCities[i]}">${allCities[i]} </>`);
     }
   }
 
@@ -172,7 +171,8 @@ $(document).on("click", ".search-input, .past-city", function (event) {
 
 
 $(window).on("load", function () {
-  searchCity = localStorage.getItem("newCity");
+  var searchCity = localStorage.getItem("newCity");
+
 
   function timeToDisplay() {
     $(".weather-div").show();
